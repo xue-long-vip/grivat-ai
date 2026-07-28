@@ -1,27 +1,83 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grivat AI - مساعدك الذكي</title>
-    <link rel="stylesheet" href="/src/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grivat AI - المساعد الذكي</title>
+  
+  <!-- PWA & Theme Settings -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="/src/style.css">
 </head>
 <body>
-    <div class="chat-container">
-        <header class="chat-header">
-            <h1>Grivat AI</h1>
-            <p>مساعدك الذكي بالدارجة المغربية</p>
-        </header>
-        <div id="chat-messages" class="chat-messages">
-            <div class="message bot-message">
-                مرحباً بيك أسي يونس! أنا مساعدك الذكي Grivat AI، كيف يمكن لي نعاونك اليوم؟
-            </div>
+
+  <!-- Main App Layout -->
+  <div class="app-container">
+    
+    <!-- Header / Status Bar -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="ai-avatar">
+          <i class="fa-solid fa-brain"></i>
+          <span class="pulse-ring"></span>
         </div>
-        <form id="chat-form" class="chat-form">
-            <input type="text" id="user-input" placeholder="اكتب رسالتك هنا..." required>
-            <button type="submit">إرسال</button>
-        </form>
-    </div>
-    <script type="module" src="/src/main.js"></script>
+        <div class="brand-text">
+          <h1>Grivat AI</h1>
+          <span class="status-badge"><i class="fa-solid fa-circle"></i> متصل وقيد الخدمة</span>
+        </div>
+      </div>
+      <button id="clear-btn" class="icon-btn" title="مسح المحادثة">
+        <i class="fa-solid fa-rotate-right"></i>
+      </button>
+    </header>
+
+    <!-- Chat Messages Feed -->
+    <main id="chat-messages" class="chat-feed">
+      <!-- Welcome Message -->
+      <div class="message bot-message intro-card">
+        <div class="message-content">
+          <p>مرحباً بك أسي يونس! 🚀</p>
+          <p>أنا **Grivat AI**، مساعدك الشخصي الفائق بالدارجة المغربية. كيف أقدر أنفعك اليوم؟</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Interactive Input Bar -->
+    <footer class="app-footer">
+      <form id="chat-form" class="input-container">
+        
+        <!-- Voice Input / Mic Button -->
+        <button type="button" id="mic-btn" class="action-btn mic-btn" title="تحدث بصوتك">
+          <i class="fa-solid fa-microphone"></i>
+        </button>
+
+        <!-- Text Input Box -->
+        <textarea 
+          id="user-input" 
+          placeholder="اكتب رسالتك هنا..." 
+          rows="1" 
+          required></textarea>
+
+        <!-- Send Button -->
+        <button type="submit" id="send-btn" class="action-btn send-btn" title="إرسال">
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+
+      </form>
+    </footer>
+
+  </div>
+
+  <!-- Main JavaScript App module -->
+  <script type="module" src="/src/main.js"></script>
+
 </body>
 </html>
